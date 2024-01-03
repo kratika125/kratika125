@@ -1,0 +1,23 @@
+POTD-#3
+TASK-2-MAJORITY ELEMENT
+Approach-
+BY USING HASH MAP(unordered)-
+1.)count the number of times a particular element occurs in nums by using map.
+2.)find the element whose occurence is more than n/2 where,n=size of vector.
+SOLUTION-
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        unordered_map<int,int>mp;
+        for(auto i:nums)
+            mp[i]++;
+        //int ans=0,a;
+        for(auto i:mp){
+            if(i.second>nums.size()/2){
+     return i.first;
+            }
+            }
+        return -1;
+            
+    }
+};
