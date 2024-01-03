@@ -1,0 +1,19 @@
+POTD-#1
+TASK-1-SECOND LARGEST
+APPROACH-
+1.)First try to find out maximum element of the array by comparing them.
+2.)then again try to find out next maximum value by comparing them and also assure that it is not equal to maximum value.
+SOLUTUION-
+class Solution {
+public:
+    int numIdenticalPairs(vector<int>& nums) {
+        int ans=0;
+        for(int i=0;i<nums.size();i++){
+            for(int j=i+1;j<nums.size();j++){
+                if(nums[i]==nums[j])
+                    ans++;
+            }
+        }
+        return ans;
+    }
+};
