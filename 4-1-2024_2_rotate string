@@ -1,0 +1,29 @@
+POTD-#4
+TASK-2-ROTATE STRING
+APPROACH-
+1.)Compare bothe string s and goal.
+2.)If they are equal return true.
+3.)Otherwise store last element of string goal and then start from end of string goal and shift all elements.
+4.)And lastly goal[0]=stored last element,and again repeat same.
+SOLUTION-
+class Solution {
+public:
+    bool rotateString(string s, string goal) {
+        int n=goal.size();
+       for(int i=0;i<n;i++)
+       {
+            if(s.compare(goal)==0)
+                return true;
+           char ch=goal[n-1];
+         for(int i=n-1;i>0;i--){
+             goal[i]=goal[i-1];
+         }
+           goal[0]=ch;
+       }   
+        return false;
+    }
+};
+TIME COMPLEXITY-
+O(n^2)
+SPACE COMPLEXITY-
+O(1)
