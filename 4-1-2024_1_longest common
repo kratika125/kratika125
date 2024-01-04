@@ -1,0 +1,40 @@
+POTD-#4
+TASK-1-LONGEST COMMON PREFIX
+APPROACH-
+1.)Firstly sort an vector so that we can get shortest string element.
+2.)Start comparing the shortest string with others,characters by characters.
+3.)If a character is not in any other vector elements then return your ans string.
+4.)Otherwise push that character in ans string.
+SOLUTION-
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        sort(strs.begin(),strs.end());
+       if(strs.size()==1)
+           return strs[0];
+         int j=0,flag;
+        string ans="";
+        while(j<strs[0].size()){
+            flag=0;
+        for(int i=1;i<strs.size();i++){
+            if(strs[i][j]!=strs[0][j])
+            {
+               flag=0;
+                break;
+            }
+            else{
+               flag=1;
+            }
+        }
+           if(flag==1)
+               ans.push_back(strs[0][j]);
+            else
+                return ans;
+           
+            j++;
+        }
+        return ans;
+            }
+        };
+        TIME COMPLEXITY-
+        O(n^2)
