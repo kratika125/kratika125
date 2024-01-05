@@ -1,0 +1,24 @@
+POTD-#5
+TASH-1-LOVE STORY
+APPROACH-
+1.)Simply compare characters of bothe strings.
+2.)If they are not equal increase count.
+3.)Otherwise simply continue.
+SOLUTION-
+#include<bits\stdc++.h>
+using namespace std;
+int main(){
+ int n,c;
+ cin>>n;
+ string s,g="codeforces";
+ while(n--){
+    c=0;
+     cin>>s;
+   for(int i=0;i<s.size();i++){
+         if(s[i]!=g[i])
+         c++;
+   }
+  cout<<c<<endl;
+ }
+ return 0;
+}
