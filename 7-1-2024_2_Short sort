@@ -1,0 +1,30 @@
+POTD=#7
+TASK-2-SHORT SORT
+SOLUTION-
+#include<bits\stdc++.h>
+using namespace std;
+int main(){
+int n;
+char p,q,r;
+cin>>n;
+while(n--){
+     cin>>p>>q>>r;
+     if(p=='a' && q=='b' && r=='c')
+     {
+      cout<<"Yes"<<endl;
+     
+     }
+  else if(p==char(q+1)){
+   cout<<"Yes"<<endl;
+  
+   }
+   else if(q==char(r+1)){
+       cout<<"Yes"<<endl;
+   
+   }
+   else
+   cout<<"No"<<endl;
+} return 0;
+}
+TIME COMPLEXITY-
+O(n)
