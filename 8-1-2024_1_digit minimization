@@ -1,0 +1,42 @@
+POTD-#8
+TASK-1-DIGIT MINIMIZATION
+APPROACH-
+1.)Change the number to string so that we can access each digit easily.
+2.)If string size is less than 3 then simply return last element which is your answer.
+3.)Otherwise,Find the minimum element index and then swap it with last element nad then remove last element.
+4.)Repeat 3rd step upto string size is greater than 1.
+5.)Left(last) element is your answer.
+SOLUTION-
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+  string v;
+  int n,x;
+  cin>>n;
+  while(n--){
+    cin>>x;
+    v=to_string(x);
+    if(v.size()<=2)
+    cout<<v[v.size()-1]<<endl;
+    else{
+    int min=v[0],j=0;
+    for(int i=0;i<v.size();i++){
+      if(min>v[i])
+      {
+        j=i;
+        min=v[i];
+      }
+    }
+    swap(v[v.size()-1],v[j]);
+while(v.size()>1){
+    
+       swap(v[v.size()-2],v[v.size()-1]);
+        v.pop_back();
+
+    }
+    cout<<v[0]<<endl;
+    }
+    v.clear();
+  }
+}
+
