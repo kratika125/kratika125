@@ -1,0 +1,31 @@
+POTD-#11
+TASK-1-FILE NAME
+APPROACH-
+1.)Count the number of character 'x' which occur continuosly.
+2.)If any other character found then add previous count to your answer and initialize count=1.
+3.)May be your string endend with 'x' character then after loop check count.
+4.)If its is greater than 2 then add it to your answer.
+SOLUTION-
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+  int n,c=1,ans=0;
+  cin>>n;
+  string s;
+  cin>>s;
+  for(int i=0;i<n;i++){
+    if(s[i]=='x' && s[i+1]=='x')
+    c++;
+    else{
+   if(c>2)
+   ans+=(c-2);
+   c=1;
+      } 
+       }
+       if(c>2 )
+       ans+=(c-2);
+  cout<<ans;
+  return 0;
+  }
+  TIME COMPLEXITY-
+  O(N)
