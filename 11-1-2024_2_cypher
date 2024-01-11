@@ -1,0 +1,49 @@
+POTD-#11
+TASK-2-CYPHER
+APPROACH-
+1.)Start from end.
+2.)If character is U,subtract 1 from current wheel number.
+3.)If character is D,add 1 in current wheel number.
+IMPORTANT POINT-
+MAKE SURE,YOUR ANSWER VALUE  MUST BE BETWEEN 0 AND 9.
+IF,it is gretaer than 9 then make it 0.
+AND,if it is less than 0 then make it 9.
+BECAUSE,in wheel before 0 is 9 AND after 9 is 0.
+SOLUTION-
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+int n,x,c,l,ans;
+string s;
+cin>>n;
+while(n--){
+  cin>>x;
+  vector<int>v;
+  while(x--){
+    cin>>c;
+   v.push_back(c);
+  }
+  for(int i=0;i<v.size();i++){
+   cin>>l;
+   cin>>s;
+   for(int j=l-1;j>=0;j--){
+       if(s[j]=='U')
+       {
+        v[i]-=1;
+        if(v[i]>9)
+        v[i]=0;
+        if(v[i]<0)
+        v[i]=9;
+       }
+       else{
+        v[i]+=1;
+        if(v[i]>9)
+        v[i]=0;
+        if(v[i]<0)
+        v[i]=9;
+       }
+   }
+    cout<<v[i]<<" ";
+  }
+ 
+}
