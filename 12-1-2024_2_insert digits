@@ -1,0 +1,34 @@
+POTD-#12
+TASK-2-INSERT DIGIT
+APPROACH-
+Check from starting and when you get a digit which is smaller than give digit then simply insert your digit at that position.
+SOLUTION-
+#include<bits\stdc++.h>
+using namespace std;
+void print(){
+    long long x,flag=0;
+    string m;
+    string t;
+    m.clear();
+        t.clear();
+        cin>>x>>t;
+         cin>>m;
+         for(int i=0;i<m.size();i++){
+        if(m[i]<t[0]){
+            m.insert(i,t);
+            flag=1;
+           break;
+        }
+       }
+       if(flag==0)
+       m.insert(x,t);
+       cout<<m<<endl;
+         }
+int main(){
+    long long n;
+    cin>>n;
+    while(n--){
+    print();
+    }
+    return 0;
+}
