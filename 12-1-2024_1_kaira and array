@@ -1,0 +1,26 @@
+POTD-#12
+TASK-1-KAIRA NAD ARRAY
+APPROACH(Very easy approach)-
+1.)Simply sort the array.
+2.)Calculate the product of two greatest element and two smallest element.
+3.)Return the maximum of these two product.
+SOLUTION-
+#include<bits\stdc++.h>
+using namespace std;
+int main(){
+    long long n,x,c,ans;
+    cin>>n;
+    vector<long long>v;
+    while(n--){
+        cin>>x;
+        v.clear();
+        while(x--){
+          cin>>c;
+          v.push_back(c);
+        }
+        sort(v.begin(),v.end());
+      ans=max(v[0]*v[1],v[v.size()-1]*v[v.size()-2]);
+      cout<<ans<<endl;
+    }
+    return 0;
+}
