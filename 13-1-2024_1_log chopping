@@ -1,0 +1,32 @@
+POTD-#13
+TASK-1-LOG CHOPPING
+APPROACH-
+1.)If you see the pattern, for 2 you have to do partitian 1 time,for 3 you  have to do partitian 2 time,and so on.
+2.)So,pattern is n is divided or partitian in n-1 times.
+3.)Subtract 1 from each element and then add all numbers.
+4.)If your answer is even then its maomao90 who win.
+5.)Otherwise errorgon wins.
+SOLUTION-
+#include<bits\stdc++.h>
+using namespace std;
+void print(){
+    long long x,a,ans=0;
+    cin>>x;
+    while(x--){
+        cin>>a;
+        ans+=(a-1);
+            }
+            if(ans%2==0)
+            cout<<"maomao90"<<endl;
+            else
+            cout<<"errorgorn"<<endl;
+
+         }
+int main(){
+    long long n;
+    cin>>n;
+    while(n--){
+    print();
+    }
+    return 0;
+}
