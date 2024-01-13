@@ -1,0 +1,26 @@
+POTD-#13
+TASK-2-GCD VS LCM
+APPROACH-
+1.)We want 4 numbers such that a+b+c+d=sum and gcd(any two)=lcm(any two),so,as we know gcd(a,1)=1 and lcm(1,1)=1.
+2.)And here a will be sum-3.
+SOLUTION-
+#include<bits\stdc++.h>
+using namespace std;
+void print(){
+    long long x,c=0;
+    cin>>x;
+    cout<<x-3<<" ";
+    while(c<3){
+ cout<<1<<" ";
+ c++;
+    }
+    }
+int main(){
+    long long n;
+    cin>>n;
+    while(n--){
+    print();
+    cout<<endl;
+    }
+    return 0;
+}
