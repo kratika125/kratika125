@@ -1,0 +1,23 @@
+POTD-#15
+TASK-2-LEXICOGRAPHICALLY SMALLEST PALINDROME
+APPROACH (TWO POINTER APPROACH)-
+1.)Simply take two pointer,first point to first element and other one points to last element and check them they are equal or not.
+2.)If they are not equal then check which one character is first in dictionary then change other one character to that.
+SOLUTION-
+class Solution {
+public:
+    string makeSmallestPalindrome(string s) {
+        int i=0,j=s.size()-1;
+        while(i<j){
+            if(s[i]!=s[j]){
+                if(s[j]>s[i])
+                s[j]=s[i];
+                else
+                    s[i]=s[j];
+            }
+            i++;
+            j--;
+        }
+        return s;
+    }
+};
