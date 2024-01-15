@@ -1,0 +1,25 @@
+POTD-#15
+TASK-1-TWO SUM
+APPROACH-
+1.)Choose First element then add this to other element and check if it is equal to target or not.
+2.)If it is not equal then move pointer to second element.
+3.)Repeat this process until end of array.
+SOLUTION-
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        int n=nums.size();
+       for(int i=0;i<n-1;i++)
+       {
+           for(int j=i+1;j<n;j++)
+           {
+               if(nums[i]+nums[j]==target)
+               {
+                   return {i,j};
+               }
+           }
+       }
+       return {};
+  
+         }
+};
