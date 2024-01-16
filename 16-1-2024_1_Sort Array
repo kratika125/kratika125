@@ -1,0 +1,20 @@
+POTD-#16
+TASK-1-SORT ARRAY BY PARITY
+APPROACH-
+1.)Sort the array.
+2.)If the element is even then swap it with nums[k],where k=0 and increase k++.
+SOLUTION-
+class Solution {
+public:
+    vector<int> sortArrayByParity(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        int k=0;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]%2==0){
+                swap(nums[i],nums[k]);
+                k++;
+            }
+        }
+        return nums;
+    }
+};
