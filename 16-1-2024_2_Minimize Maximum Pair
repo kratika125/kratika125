@@ -1,0 +1,19 @@
+POTD-#16
+TASK-2-MINIMIZE MAXIMUM OAIR SUM
+APPROACH-
+1.)Sort the array.
+2.)Add first and last and then compare and find maximum.
+3.)Similarly,last second and second then repeat same process.
+SOLUTION-
+class Solution {
+public:
+    int minPairSum(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        int max=0,n=nums.size();
+        for(int i=0;i<n/2;i++){
+              int a=nums[i]+nums[n-1-i];
+                if(max<a)
+                max=a;
+            }
+        return max; }
+};
