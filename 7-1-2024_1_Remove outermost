@@ -1,0 +1,33 @@
+POTD-#7
+TASK-1-REMOVE OUTERMOST PARANTHESES
+APPROACH-
+1.)If the element is '(' and check if stack size!=0 then put the element in answer string and also in stack.
+2.)If the element is ')' and check if top element in stack is '(' and also stack size is greater than 1 then pop the top element and put the element in answer string.
+3.)If the above condition is not satisfied then pop the top element.
+SOLUTION-
+class Solution {
+public:
+    string removeOuterParentheses(string s) {
+        stack<int>q;
+        string t;
+        //q.push(s[0]);
+        for(int i=0;i<s.size();i++){
+            if(s[i]=='('){
+               if(q.size()!=0)
+                    t.push_back(s[i]);
+                 q.push(s[i]);
+            }
+            else
+            {
+                if(q.top()=='(' && q.size()>1){
+                    t.push_back(s[i]);
+                     q.pop();
+                }
+                else
+                    q.pop();
+            }
+        
+        }
+        return t;
+    }
+};
