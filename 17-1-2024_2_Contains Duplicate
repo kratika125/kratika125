@@ -1,0 +1,27 @@
+POTD-#17
+TASK-2-CONTAINS DUPLICATE ||
+APPROACH-
+1.)Create a map which store element as key and its index as value.
+2.)Check if element is already present in map or not.
+3.)If it is already present then check absolute difference between its index and value stored already is less than equal to k.
+4.)If yes then return true,otherwise store new index as value for that key and repeat the process.
+SOLUTION-
+class Solution {
+public:
+    bool containsNearbyDuplicate(vector<int>& nums, int k) {
+       unordered_map<int,int>mp;
+        for(int i=0;i<nums.size();i++){
+           auto it=mp.find(nums[i]);
+            if(it!=mp.end()){
+              if(abs(it->second-i)<=k)
+                  return 1;
+                else
+                    mp[nums[i]]=i;
+            }
+            else{
+                mp[nums[i]]=i;
+            }
+        }
+        return 0;
+    }
+};
