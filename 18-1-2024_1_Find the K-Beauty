@@ -1,0 +1,20 @@
+POTD-#18
+TASK-1-FIND THE K-BEAUTY OF A NUMBER
+APPROACH-
+Convert the number into string and then make a substring of length k and check if it is divides number or not and also not equal to 0,thrn increase count by 1,else
+continue.
+SOLUTION-
+class Solution {
+public:
+    int divisorSubstrings(int num, int k) {
+        string s=to_string(num);
+        int ans=0;
+       for(int i=0;i<=s.size()-k;i++){
+           string t=s.substr(i,k);
+              int m=stoi(t);
+               if( m!=0 && num%m==0)
+                   ans++;
+          }
+        return ans;
+    }
+};
