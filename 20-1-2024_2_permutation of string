@@ -1,0 +1,27 @@
+POTD#20
+TASK-2-PERMUTATAION IN STRING
+APPROACH-
+1.)Firstly sort the s1 string.
+2.)Then,make a substring of length equal to s1 string from s2 string and then sort it and compare with s1,if they are equal return true.
+3.)Repeat 2nd step until substring have same size as s1.
+SOLUTION-
+class Solution {
+public:
+    bool checkInclusion(string s1, string s2) {
+       int i=0,n=s1.size();
+       sort(s1.begin(),s1.end());
+       string str=s2.substr(i,n);
+        while(str.size()==n){
+            str=s2.substr(i,n);
+            sort(str.begin(),str.end());
+            if(str==s1)
+            return true;
+            i++;
+        }
+        return false;
+    }
+};
+TIME COMPLEXITY-
+O(N)
+SPACE COMPLEXITY-
+O(n), where n is maximum length of string between s1 and s2.
