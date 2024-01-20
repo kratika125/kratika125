@@ -1,0 +1,30 @@
+POTD-#8
+TASK-2-MINIMUM TIME TO MAKE ROPE COLORFUL
+APPROACH-
+1.)Compare two consecutive elements,if they are equal then compare there neededtime.
+2.)If neededtime is larger of first element than second,then add neededtime of minimum of these two to answer and also change the value of neededtime of second element=neededtime of first element.
+3.)Otherwise do same as 2nd step but not change the neededtime.
+SOLUTION-
+class Solution {
+public:
+    int minCost(string colors, vector<int>& n) {
+        int ans=0,i=0,j;
+         while(i<colors.size()-1){
+             if(colors[i]==colors[i+1])
+            {       if(n[i]<n[i+1])
+            ans+=n[i];
+            else{
+            ans+=n[i+1];
+            n[i+1]=n[i];
+                       }
+             }
+          i++;
+          }
+        
+        return ans;
+    }
+};
+TIME COMPLEXITY-
+O(N)
+SPACE COMPLEXITY-
+O(1)
