@@ -1,0 +1,24 @@
+POTD-#20
+TASK-1-CONTAINER WITH MOST WATER
+APPROACH-
+1.)Let's take two pointers, one points to starting or first element and another one to last element.
+2.)They form a rectangle,calculate the area of that rectangle and then compare it with max_area,so that you can keep track on max_area of all.
+3.)Then, if first pointer element is less,it means that it is a limiting factor in maximizing area,so move forward your first iterator.
+4.)Otherwise, move second pointer towards first pointer.
+SOLUTION-
+class Solution {
+public:
+    int maxArea(vector<int>& h) {
+       int maxi=INT_MIN,c,l=0,r=h.size()-1;
+       while(l<r){
+           int m=min(h[l],h[r]);
+           c=m*(r-l);
+           maxi=max(c,maxi);
+           if(h[l]<h[r])
+           l++;
+           else
+           r--;
+       }
+       return maxi;
+    }
+};
