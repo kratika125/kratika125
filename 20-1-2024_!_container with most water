@@ -22,3 +22,7 @@ public:
        return maxi;
     }
 };
+TIME COMPLEXITY-
+O(N)
+SPACE COMPLEXITY-
+O(1)
