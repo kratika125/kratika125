@@ -1,0 +1,39 @@
+POTD-#21
+TASK-2-FIND ALL ANAGRAMS IN A STRING
+APPROACH-
+1.)Create two vectors of size 26,one of them  store the count of every alphabet in p string and another one store the count of every alphabet in every window.
+2.)Simply apply sliding window approach, and a variable start with 0 and then compare bothe vectors,if they are equal then push the value of variable in answer vector and everytime increase the value of variable.
+3.)In sliding window, just increase the count of next element and decrease the count of previous element.
+SOLUTION-
+class Solution {
+public:
+    vector<int> findAnagrams(string s, string p) {
+        if(p.size()>s.size())
+        return { };
+       vector<int>hash(26,0);
+       vector<int>map(26,0);
+       vector<int>v;
+       for(int i=0;i<p.size();i++)
+       {
+           hash[p[i]-'a']++;
+       }
+       for(int i=0;i<p.size();i++)
+       map[s[i]-'a']++;
+       int l=0;
+        if(map==hash)
+         v.push_back(l);
+         l++;
+     for(int i=0;i<s.size()-p.size();i++){
+         map[s[p.size()+i]-'a']++;
+         map[s[i]-'a']--;
+          if(map==hash)
+         v.push_back(l);
+         l++;
+          }
+           return v;
+    }
+};
+TIME COMPLEXITY-
+O(N),where N=SIZE OF STRING S
+SPACE COMPLEXITY-
+O(N),where N=SIZE OF STRING S
