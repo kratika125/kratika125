@@ -1,0 +1,39 @@
+POTD-#6
+TASK-1-NEW PALINDROME
+APPROACH-
+1.)A string can be palindrome(not same as given string),if it have repeated characters at least 2.
+2.)Simply,count the no. of times a particular character present instring through map.
+3.)Then check,if repeated characters is greater than 2 or not, if yes then return yes.
+4.)Otherwise no.
+SOLUTION-
+#include<bits/stdc++.h>
+using namespace std;
+void  print(){
+    string s;
+    cin>>s;
+    int c=0;
+    unordered_map<char,int>mp;
+    for(auto i:s)
+    mp[i]++;
+    for(auto i:mp){
+        if(i.second>=2)
+        c++;
+    }
+    if(c>=2)
+    cout<<"YES"<<endl;
+    else
+    cout<<"NO"<<endl;
+}
+int main(){
+long long n;
+cin>>n;
+while(n--){
+    print();
+}
+return 0;
+}
+TIME COMPLEXITY-
+O(N^2)
+SPACE COMPLEXITY-
+O(N*M)
+where,m=length of longest string among n inputs
