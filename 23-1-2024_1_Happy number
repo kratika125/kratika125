@@ -1,0 +1,31 @@
+POTD-#23
+TASK-1-HAPPY NUMBER
+SOLUTION-
+class Solution {
+public:
+int sum(int n){
+    int s=0;
+    while(n>0){
+        int m=n%10;
+      s+=(m*m);
+      n=n/10;
+    }
+    return s;
+}
+    bool isHappy(int n) {
+        int flag=1,prev=n;
+        while(flag){
+         int l=sum(prev);
+         if(l==1)
+         return 1;
+         else if(l==4)
+         return 0;
+         prev=l;
+        }
+        return 1;
+    }
+};
+TIME COMPLEXITY-
+O(N^2)
+SPACE COMPLEXITY-
+O(1)
