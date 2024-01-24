@@ -1,0 +1,60 @@
+POTD-#24
+TASK-1-COMPARE VERSION NUMBERS
+APPROACH-
+1.)Create two vectors for two versions,and store the integer value of version1 and version2 before '.' in vectors.
+2.)If the size of bothe vectors are different then make their size equal by pushing 0 in smallest size vector and then  compare them.
+3.)If v1[i]>v2[i],return 1.
+4.)If v1[i]<v2[i],return -1.
+5.)Otherwise return 0.
+SOLUTION-
+class Solution {
+public:
+    int compareVersion(string version1, string version2) {
+        vector<int>a;
+        vector<int>b;
+        string c;
+        int m;
+        for(int i=0;i<version1.size();i++){
+            if(version1[i]=='.'){
+                a.push_back(stoi(c));
+                c.clear();
+            }
+            else
+            c.push_back(version1[i]);
+        }
+          a.push_back(stoi(c));
+        c.clear();
+         for(int i=0;i<version2.size();i++){
+            if(version2[i]=='.'){
+             
+                b.push_back(stoi(c));
+                c.clear();
+            }
+            else
+            c.push_back(version2[i]);
+        }
+         b.push_back(stoi(c));
+
+        if(a.size()<b.size()){
+           while(a.size()!=b.size())
+           a.push_back(0);
+        }
+         if(a.size()>b.size()){
+           while(a.size()!=b.size())
+           b.push_back(0);
+        }
+      for(int i=0;i<a.size();i++){
+          if(a[i]!=b[i]){
+               if(b[i]>a[i])
+            return -1;
+            else
+            return 1;
+          }
+      }
+      return 0;
+    }
+};
+TIME COMPLEXITY-
+O(N)
+SPACE COMPLEXITY-
+O(N)
