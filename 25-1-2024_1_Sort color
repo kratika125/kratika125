@@ -1,0 +1,23 @@
+POTD-#25
+TASK-1-SORT COLOR
+APPROACH-
+Simply sort the array by finding the minimum from the position after the particular element and if element found then swap these elements.
+SOLUTION-
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        for(int i=0;i<nums.size();i++){
+            for(int j=i;j<nums.size();j++){
+                if(nums[i]>nums[j]){
+                    int temp=nums[i];
+                    nums[i]=nums[j];
+                    nums[j]=temp;
+                }
+            }
+        }
+    }
+};
+TIME COMPLEXITY-
+O(N^2)
+SPACE COMPLEXITY-
+O(1)
