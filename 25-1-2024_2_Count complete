@@ -1,0 +1,33 @@
+POTD-#25
+TASK-2-COUNT COMPLETE SUBARRAYS IN AN ARRAY
+APPROACH-
+1.)Create a set from which we find out number of distinct element in array.
+2.)Start from first element then move forward and store the element in set and everytime check set size== array set size,if yes then increase answer count.
+3.)Repeat same process until last element of array.
+SOLUTION-
+class Solution {
+public:
+    int countCompleteSubarrays(vector<int>& nums) {
+        int ans=0,k;
+        unordered_set<int>s;
+        for(auto i:nums)
+        s.insert(i);
+     k=s.size();
+          for(int i=0;i<nums.size();i++){
+              s.clear();
+                for(int j=i;j<nums.size();j++){
+                        s.insert(nums[j]);
+        if(s.size()==k)
+        ans++;
+                }
+}
+      return ans;
+    }
+};
+TIME COMPLEXITY-
+O(N)
+SPACE COMPLEXITY-
+O(N)
+O(N)
+SPACE COMPLEXITY-
+O(1)
