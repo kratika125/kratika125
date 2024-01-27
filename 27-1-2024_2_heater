@@ -1,0 +1,34 @@
+POTD-#27
+TASK-2-HEATER
+APPROACH-
+1.)Start from first house and check if heater is at that house or not,if yes,then simply continue.
+2.)Otherwise,Find minimum distance from that house(where heater is present).
+3.)And then check is this distance is greater than your answer distance or not,if it is greater then change your answer to that distance,otherwise continue.
+SOLUTION-
+class Solution {
+public:
+    int findRadius(vector<int>& houses, vector<int>& heaters) {
+        int ans,c=INT_MAX,j=0,maxi=0;
+        while(j<houses.size()){
+            c=INT_MAX;
+            auto it=find(heaters.begin(),heaters.end(),houses[j]);
+            if(it!=heaters.end()){
+                j++;
+            continue;
+            }
+            else{
+        for(int i=0;i<heaters.size();i++){
+            ans=abs(heaters[i]-houses[j]);
+            c=min(c,ans);
+        }
+        maxi=max(c,maxi);
+            }
+        j++;
+        }
+        return maxi;
+    }
+};
+TIME COMPLEXITY-
+O(NlogN+MlogM)
+SPACE COMPLEXITY-
+o(1)
