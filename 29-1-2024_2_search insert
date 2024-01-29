@@ -1,0 +1,62 @@
+POTD-#29
+TASK-2-SEARCH INSERT POSITION
+APPROACH(by binary search)-
+1.)Firstly check if the target is less than mid element then,check if mid is 0 and target is less than mid then it means it is first element so return mid,else check previous elememnt from mid,
+if,previous element is less than target,it means it is the position where we have to insert it,so return mid,else set last pointer to mid-1.
+2.)Same as 1 if taget is greater than mid,then also check all conditions.
+3.)Otherwise return mid,because element is equal to mid.
+SOLUTION 1-
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        int l=0,h=nums.size()-1,mid,flag=1;
+        while(flag){
+            mid=(l+h)/2;
+            if(nums[mid]>target){
+                 if(mid==0)
+                {
+                    if(nums[mid]>target)
+                        return mid;
+                }
+                 if( nums[mid-1]<target)
+                    return mid;
+                else
+                h=mid-1;
+            }
+            else if(nums[mid]<target){
+                if(mid==nums.size()-1)
+                {
+                    if(nums[mid]<target)
+                        return mid+1;
+                }
+                if( nums[mid+1]>target)
+                    return mid+1;
+                else
+                l=mid+1;
+            }
+            else
+                return mid;
+        }
+        return 0;
+    }
+};
+TIME COMPLEXITY-
+O(logn)
+SPACE COMPLEXITY-
+O(1)
+APPROACH(by using lower bound function)-
+There is a lower bound function which return iterator which points to the first element which is equal to or greater than target value.
+SOLUTION 2-
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        int index;
+        index=lower_bound(nums.begin(),nums.end(),target)-nums.begin();
+        return index;
+        
+    }
+};
+TIME COMPLEXITY-
+O(logn)
+SPACE COMPLEXITY-
+O(1)
