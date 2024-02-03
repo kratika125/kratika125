@@ -1,6 +1,10 @@
 POTD-#31
 TASK-2-COUNT NEGATIVE NUMBERS IN A SORTED ARRAY
 APPROACH-
+1.)Check row wise,create 3 variables l(points to first element of given row),h(points to last element of given row) and a mid points to mid of l and h.
+2.)If mid element greater than or equal to 0 then move your h to mid-1(beacause there is only positive numbers after that).
+3.)Otherwise(means element point by mid is less than 0)increse your counter by mid-l+1 and then check if mid+1 is less tha 0 or not,if yes then move l=mid+1,else break the loop.
+4.)Return your counter as answer.
 SOLUTION-
 class Solution {
 public:
