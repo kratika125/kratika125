@@ -1,0 +1,35 @@
+POTD-#32
+TASK-1-SINGLE ELEMENT
+APPROACH-
+1.)Check if the single element is first element or last one,if yes then return it
+2.)Otherwise,create a pointer l(points to first element) and h(points to last element) and a mid points at mid of l and h.
+3.)Check if mid-1 element and mid+1 are same as mid or not,if they are not same it means mid is a single element,return it,otherwise,check to element point by h(same as chech as mid),if it is not same then return
+it,else move h towards l by 1.
+4.)Repeat this process until we can't find answer.
+SOLUTION-
+class Solution {
+public:
+    int singleNonDuplicate(vector<int>& nums) {
+        int l=0,h=nums.size()-1,mid;
+        if(nums.size()==1)
+        return nums[0];
+        if(nums[l]!=nums[l+1])
+        return nums[l];
+        if(nums[h]!=nums[h-1])
+        return nums[h];
+        while(l<=h){
+            mid=(l+h)/2;
+            if(nums[mid]!=nums[mid-1] && nums[mid+1]!=nums[mid])
+            return nums[mid];
+            else if(h!=nums.size()-1 && nums[h]!=nums[h-1] && nums[h]!=nums[h+1])  
+            return nums[h];
+            else
+            h--;     }
+            return -1;
+
+    }
+};
+TIME COMPLEXITY-
+O(logn)
+SPACE COMPLEXITY-
+O(1)
