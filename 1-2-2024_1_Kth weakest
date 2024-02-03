@@ -1,0 +1,46 @@
+POTD-#31
+TASK-1-KTH WEAKEST ROW IN A MATRIX
+APPROACH-
+1.)Check row wise,create 3 variables l(points to first element of given row),h(points to last element of given row) and a mid points to mid of l and h.
+2.)If mid element is 0 then move your h to mid-1(beacause there is no 1(soldier) after 0.
+3.)Otherwise(means element point by mid is 1)increse your counter by mid-l+1 and then check if mid+1 is 1 or not,if yes then move l=mid+1,else break the loop.
+4.)This whole process is for one row,so store its index and no. of ones in a vector pair and then move to next row.
+5.)After that sort your pair so that we get less number of 1 and then upto k put there indices(pair->second element)and then return this array as your answer.
+SOLUTION-
+class Solution {
+public:
+    vector<int> kWeakestRows(vector<vector<int>>& mat, int k) {
+        vector<int>v;
+        vector<int>temp;
+        vector<pair<int,int>>l;
+        int ans=0;
+        for(int i=0;i<mat.size();i++){
+                 temp.clear();
+                 temp=mat[i];
+                 int low=0,h=temp.size()-1,mid;
+                 ans=0;
+                 while(low<=h){
+                     mid=(low+h)/2;
+                     if(temp[mid]==0)
+                     h=mid-1;
+                     else{
+                         ans+=(mid-low+1);
+                         if(mid!=temp.size()-1 && temp[mid+1]==1)
+                         low=mid+1;
+                         else
+                         break;
+                        }
+                 }
+                 l.push_back({ans,i});
+        }
+        sort(l.begin(),l.end());
+for(int i=0;i<k;i++){
+    v.push_back(l[i].second);
+}
+ return v;
+    }
+};
+TIME COMPLEXITY-
+O(nlogn)
+SPACE COMPLEXITY-
+O(N)
