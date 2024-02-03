@@ -1,0 +1,32 @@
+POTD-#10
+TASK-2-XOR
+SOLUTION-
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+int n,c=0;
+cin>>n;
+while(n--){
+    c=0;
+    int x;
+    cin>>x;
+    if(x%2!=0){
+    while(x--)
+        cout<<2<<" ";
+    }
+     else {
+    while(c<x-2){
+    cout<<2<<" ";
+    c++;
+     }
+    cout<<1<<" ";
+    cout<<3<<" ";
+     }
+    cout<<endl;
+}
+return 0;
+}
+TIME COMPLEXITY-
+O(N^2)
+SPACE COMPLEXITY-
+O(1)
