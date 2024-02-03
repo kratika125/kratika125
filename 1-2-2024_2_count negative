@@ -1,0 +1,33 @@
+POTD-#31
+TASK-2-COUNT NEGATIVE NUMBERS IN A SORTED ARRAY
+APPROACH-
+SOLUTION-
+class Solution {
+public:
+    int countNegatives(vector<vector<int>>& grid) {
+        int ans=0;
+        for(int i=0;i<grid.size();i++){
+            vector<int>temp;
+            temp=grid[i];
+            sort(temp.begin(),temp.end());
+         int l=0,h=temp.size()-1,mid;
+            while(l<=h){
+                mid=(l+h)/2;
+              if(temp[mid]>=0)
+              h=mid-1;
+              else{
+                  ans+=(mid-l+1);
+                  if(mid!=temp.size()-1 && temp[mid+1]<0)
+                  l=mid+1;
+                  else
+                  break;
+              }
+            }
+        }
+        return ans;
+    }
+};
+TIME COMPLEXITY-
+O(nlogn)
+SPACE COMPLEXITY-
+O(N)
