@@ -1,5 +1,10 @@
 POTD-#10
 TASK-2-XOR
+HOW TO THINK-
+1.)Try to get average 2 from numbers and for this,if the input is odd(i.e, 3 numbers,5 numbers),simply take 2 as output as we see the average comes out is 2,
+and xor is also 2(because odd number of times xor of same number  gives you that number).
+2.)If the input is even,then choose numbers such that 2 occur maximum even number of times(because then xor of even number of times of same number gives 0)
+and then remaining 2 numbers are 1 and 3(because the xor of 1 and 3 is 2).
 SOLUTION-
 #include<bits/stdc++.h>
 using namespace std;
