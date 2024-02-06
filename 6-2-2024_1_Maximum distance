@@ -1,0 +1,27 @@
+POTD-#36
+TASK-1-MAXIMUM DISTANCE BETWEEN A PAIR OF VALUES
+APPROACH-
+1.)Apply binary search,if the num1[i]<=nums2[i],then check mid of nums2,if it is gretaer than nums1[i],then set low to mid+1 and aslo cehck
+SOLUTION-
+class Solution {
+public:
+    int maxDistance(vector<int>& nums1, vector<int>& nums2) {
+       long long ans=0;
+       for(int i=0;i<min(nums1.size(),nums2.size());i++){
+        if(nums1[i]<=nums2[i]){
+        long long l=i,h=nums2.size()-1,mid;
+        while(l<=h){
+        mid=l+(h-l)/2;
+        if(nums2[mid]>=nums1[i]){
+        l=mid+1;
+        ans=max(mid-i,ans); }
+         else
+          h=mid-1;
+               }
+           }
+       } 
+       return ans;
+    }
+};
+TIME COMPLEXITY-
+SPACE COMPLEXITY-
