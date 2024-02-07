@@ -1,0 +1,28 @@
+POTD-#37
+TASK-1-COUNT PAIRS WHOSE SUM IS LESS THAN TARGET
+APPROACH-
+1.)Sort the given array and then create two pointers one point at starting element and another one at last element,then check if their sum is smaller than target or not.
+2.)If yes,then increse your answer count by h-l(because the numbers between them also have sum less than target) and increase l by 1.
+3.)Otherwise,decrese h by 1.
+SOLUTION-
+class Solution {
+public:
+    int countPairs(vector<int>& nums, int target) {
+        sort(nums.begin(),nums.end());
+            int l=0,h=nums.size()-1,ans=0;
+            while(l<=h){
+                if(nums[l]+nums[h]<target){
+                       ans+=(h-l);
+                       l++;
+                }
+                else
+                h--;
+            }
+return ans;
+        
+    }
+};
+TIME COMPLEXITY-
+O(nlogn)
+SPACE COMPLEXITY-
+O(1)
