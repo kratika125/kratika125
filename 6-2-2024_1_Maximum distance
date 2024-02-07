@@ -1,7 +1,9 @@
 POTD-#36
 TASK-1-MAXIMUM DISTANCE BETWEEN A PAIR OF VALUES
 APPROACH-
-1.)Apply binary search,if the num1[i]<=nums2[i],then check mid of nums2,if it is gretaer than nums1[i],then set low to mid+1 and aslo cehck
+1.)Apply binary search,if the num1[i]<=nums2[i],then check mid of nums2,if it is gretaer than nums1[i],then set low to mid+1 and also check if ans is less than mid-i
+or not,if yes then ans=mid-i.
+2.)If nums1[i]>mid then set high to mid-1,and repeat the same process
 SOLUTION-
 class Solution {
 public:
@@ -24,4 +26,6 @@ public:
     }
 };
 TIME COMPLEXITY-
+O(nlogn)
 SPACE COMPLEXITY-
+O(1)
