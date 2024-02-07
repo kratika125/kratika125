@@ -1,0 +1,37 @@
+POTD-#35
+TASK-1-GUESS NUMBER
+APPROACH-
+1.)Set low to 1 and high to that input and then calculate mid,and then send this mid to that GUESS AI and if it return -1(means mid is greater than pick)set high to mid-1.
+2.)If it return 1(means mid is lower than pick) set low to mid+1, if it return 0(it means we guess correct)then return mid.
+SOLUTION-
+/** 
+ * Forward declaration of guess API.
+ * @param  num   your guess
+ * @return 	     -1 if num is higher than the picked number
+ *			      1 if num is lower than the picked number
+ *               otherwise return 0
+ * int guess(int num);
+ */
+
+class Solution {
+public:
+    int guessNumber(int n) {
+        int l=1,h=n,mid;
+        while(l<=h){
+            mid=l+(h-l)/2;
+            int a=guess(mid);
+            if(a==-1)
+            h=mid-1;
+            else if(a==1)
+            l=mid+1;
+            else
+            return mid;
+
+        }
+        return 0;
+    }
+};
+TIME COMPLEXIY-
+O(logn)
+SPACE COMPLEXITY-
+O(1)
