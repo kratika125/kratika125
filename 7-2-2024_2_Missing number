@@ -1,0 +1,29 @@
+POTD-#37
+TASK-2-MISSING NUMBER
+APPROACH-
+1.)Sort the given array and then create three pointers, one is low which points to first element,another one is high points to last element and last one is at mid.
+2.)Check if mis element is equal to its index(mid),if yes then set low to mid+1,otherwise check if mid-1 is also not equal to mid-1 indexed element,if yes then set high to mid-1,else return mid.
+SOLUTION-
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+       sort(nums.begin(),nums.end());
+       int l=0,h=nums.size()-1,mid;
+       while(l<=h){
+           mid=(l+h)/2;
+           if(nums[mid]!=mid){
+                 if(mid!=0 && mid-1!=nums[mid-1])
+                 h=mid-1;
+                 else
+                 return mid;
+           }
+           else
+           l=mid+1;
+       }
+       return nums.size();
+          }
+};
+TIME COMPLEXITY-
+O(logn)
+SPACE COMPLEXITY-
+O(1)
