@@ -1,0 +1,34 @@
+POTD-#38
+TASK-1-FIND THE SMALLEST DIVISOR
+APPROACH-
+1.)It is confirm that the positive divisor is between 1 and maximum element of array,then it's clear from this that the approach is binary search.
+2.)Then,calculate sum by divide the array element with mid(take ceil) and then check if sum<=threshold,if yes then store answer as minimum of answer and mid and set your high pointer to mid-1.
+3.)Otherwise set the low pointer to mid+1.
+SOLUTION-
+class Solution {
+public:
+    int smallestDivisor(vector<int>& nums, long long threshold) {
+        long long l=1,h=*max_element(nums.begin(),nums.end()),ans=INT_MAX,mid,sum=0;
+        while(l<=h){
+           mid=(l+h)/2;
+           sum=0;
+           for(int i=0;i<nums.size();i++){
+               double k=mid;
+               sum=sum+ceil(nums[i]/k);
+           }
+           if(sum<=threshold){
+           ans=min(ans,mid);
+           h=mid-1;
+           }
+           else
+           l=mid+1;
+
+        }
+
+return ans;
+    }
+};
+TIME COMPLEXITY-
+O(nlogn)
+SPACE COMPLEXITY-
+O(1)
