@@ -1,0 +1,28 @@
+POTD-#30
+TASK-1-ARRANGING COINS 
+APPROACH-
+1. Create three pointers,one points at 1,another one at n(input),and a mid which is (l+h)/2.
+2. If sum upto mid is greater than n then set h=mid-1,if  it is greater than n then ans=mid and set l=mid+1.
+3. If it is equal to n then return mid.
+Solution {
+public:
+    int arrangeCoins(int n) {
+       long long l=1,h=n,mid,ans;
+       while(l<=h){
+           mid=(l+h)/2;
+       if((mid*(mid+1)/2)>n)
+           h=mid-1;
+          else if((mid*(mid+1)/2)<n){
+          ans=mid;
+          l=mid+1;
+          }
+          else
+          return mid;
+       }
+       return ans;
+    }
+};
+TIME COMPLEXITY-
+O(logn)
+SPACE COMPLEXITY-
+O(1)
