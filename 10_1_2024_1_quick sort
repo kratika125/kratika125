@@ -1,0 +1,34 @@
+POTD-#10
+TASK-1-QUICK SORT
+APPROACH-
+1.)In sorted array of 1 to n,the first element is 1 and then 2....so,first try to find 1,and add 1 in answer if the element is not 1, and if 1 is finded then find 2 and also increase you answer count,whenever
+you did'nt find your target and then divide your answer with k and return ceil.
+SOLUTION-
+#include<bits/stdc++.h>
+using namespace std;
+void print()
+{
+    int t,m,ans=0,i=1;
+    cin>>t;
+    cin>>m;
+    vector<int>v;
+    while(t--) {
+        int x;
+        cin>>x;
+        v.push_back(x);
+    }
+    for(int j=0;j<v.size();j++){
+       if(v[j]!=i)
+       ans++;
+       else
+       i+=1;
+    }
+cout<<(ans+m-1)/m<<endl;
+}
+int main(){
+int n;
+cin>>n;
+while(n--)
+print();
+return 0;
+}
