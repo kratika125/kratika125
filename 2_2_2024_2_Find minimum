@@ -1,0 +1,27 @@
+POTD-#32
+TASK-2
+APPROACH-
+1.)Create three pointers one points to first element ,another one points to last element,then check everytime if element points by low is less than element points by high,then return element pointed by low.
+2.)If mid element is less than low element it means the minimum elememt is between mid element and low then set high to mid.
+3.)Else if mid element is greater than high element then it means minimum elememt is between mid element and high,then set low to mid+1.
+SOLUTION-
+class Solution {
+public:
+    int findMin(vector<int>& nums) {
+      int l=0,h=nums.size()-1,mid;
+        while(l<=h){
+            if(nums[l]<=nums[h])
+                return nums[l];
+            mid=(l+h)/2;
+            if(nums[l]>nums[mid])
+                h=mid;
+            else if(nums[h]<nums[mid])
+                l=mid+1;
+        }
+       return -1; 
+    }
+};
+TIME COMPLEXITY-
+O(logn)
+SPACE COMPLEXITY-
+O(1)
