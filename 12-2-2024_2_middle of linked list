@@ -1,0 +1,39 @@
+POTD-#41
+TASK-2-MIDDLE OF LINKED LIST
+APPROACH-
+1.)Firstly calculate the length of linked list,then middle is length/2 then simply iterate from head and when you at position length/2 then simply return your answer.
+SOLUTION-
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        int l=0;
+        ListNode* temp=head;
+        while(temp!=NULL){
+            l++;
+            temp=temp->next;
+        }
+        int x=l/2;
+        l=0;
+        temp=head;
+        while(l<x){
+            temp=temp->next;
+            l++;
+        }
+        return temp;
+        
+    }
+};
+TIME COMPLEXITY-
+O(n)
+SPACE COMPLEXITY-
+O(1)
