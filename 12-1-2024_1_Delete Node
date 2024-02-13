@@ -1,0 +1,25 @@
+POTD-#41
+TASK-1-DELETE NODE IN LINKED LIST
+APPROACH-
+1.)It is given in the problem that a node that is going to deleted cannot be last node.
+2.)So,we store the value of node which is next to node(to be deleted)in the node(to be deleted) and then points node->next to node->next->next.
+SOLUTION-
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    void deleteNode(ListNode* node) {
+       node->val=node->next->val;
+       node->next=node->next->next;
+    }
+};
+TIME COMPLEXITY-
+O(1)
+SPACE COMPLEXITY-
+O(1)
