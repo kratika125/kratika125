@@ -1,0 +1,50 @@
+POTD-#42
+TASK-1-REMOVE NTH NODE
+APPROACH-
+1.)Firstly find the length of linked list and then calculate the position of node(to be deleted) from starting by length-position from end.
+2.)Then start from first and then traverse through list and delete the node at that position by connecting its previous node to the next node of node(to be deleted) and then points the node(to be deleted) to NULL
+and then delete it.
+SOLUTION-
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        int l=0,x=0;
+        ListNode* temp=head;
+        ListNode* prev=head;
+        while(temp!=NULL){
+             l++;
+            temp=temp->next;}
+          l=l-n;
+            if(l==0){
+               head=head->next;
+                return head;
+            }
+             temp=head;
+          while(temp!=NULL){
+                prev=temp;
+                temp=temp->next;
+                 if(x==l-1 ){
+          prev->next=temp->next;
+          temp->next=NULL;
+          delete(temp);
+          break;
+                }
+                x++;
+          }
+           return head;
+    }
+};
+TIME COMPLEXITY-
+O(N)
+SPACE COMPLEXITY-
+O(N)
