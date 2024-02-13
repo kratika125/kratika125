@@ -1,0 +1,36 @@
+POTD-#42
+TASK-2-REVERSE LINKED LIST
+APPROACH-
+1.)Create 3 pointers,one is prev(points to NULL), second one is curr(points to head) and another one is temp(which always points to curr->next)
+2.)Simply connect the node with previous one and unconnect with its next node.
+3.)For this process,first point temp to curr->next and then connect curr->next=prev and then move pointer, prev=curr, and curr=temp.
+SOLUTION-
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        ListNode* prev=NULL;
+         ListNode* curr=head;
+          ListNode* temp;
+          while(curr!=NULL){
+              temp=curr->next;
+              curr->next=prev;
+              prev=curr;
+              curr=temp;
+          }
+  return prev;
+    }
+};
+TIME COMPLEXITY-
+O(N)
+SPACE COMPLEXITY-
+O(N)
