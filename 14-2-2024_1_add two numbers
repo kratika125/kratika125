@@ -1,0 +1,40 @@
+POTD-#43
+TASK-1-ADD TWO NUMBERS
+APPROACH-
+1.)Create a new list(all values initialized with 0 and all points to NULL),and a node temp1(on which we perform operations),then create a variable sum in which we add list members if they are not null and also 
+move pointer to next node,then add previous carry if any to sum and then store the remainder in list and change carry to sum/10.
+SOLUTION-
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+    int c=0,sum;
+    ListNode* temp=new ListNode();
+ListNode* temp1=temp;
+while(l1!=NULL || l2!=NULL){
+    sum=0;
+    if(l1!=NULL)
+   sum+=l1->val;
+   if(l2!=NULL)
+   sum+=l2->val;
+   sum+=c;
+   c=0;
+ c=sum/10;
+   ListNode* newnode=new ListNode(sum%10);
+  temp1->next=newnode;
+  temp1=temp1->next;
+    if(l1!=NULL)
+    l1=l1->next;
+    if(l2!=NULL)
+    l2=l2->next;
+}
+if(c!=0){
+ListNode* newnode=new ListNode(c);
+temp1->next=newnode;
+    } 
+   return temp->next;
+    }
+    };
+    TIME COMPLEXITY-
+    O(n)
+    SPACE COMPLEXITY-
+    O(n)
