@@ -1,0 +1,31 @@
+POTD-#43
+TASK-2-REMOVE LINKED LIST ELEMENTS
+APPROACH-
+1.)Create two pointers,one point at previous node and another one at current,and then check if current node value is equal to value then,connect prev node to next node of current and make current equal to previous.
+2.)If current is head,then previous=current and make current move to next node.
+SOLUTION-
+class Solution {
+public:
+    ListNode* removeElements(ListNode* head, int val) {
+         while(head!=NULL && head->val==val){
+             head=head->next;
+         }
+          ListNode* temp=head;
+         ListNode* prev=head;
+        while(temp!=NULL){
+            if(temp!=head && temp->val==val){
+                 prev->next=temp->next;
+                 temp=prev;
+                 }
+            else{
+            prev=temp;
+            temp=temp->next;
+            }
+        }
+        return head;
+    }
+};
+TIME COMPLEXITY-
+O(N)
+SPACE COMPLEXITY-
+O(N)
