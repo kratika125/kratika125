@@ -1,0 +1,39 @@
+POTD-#35
+TASK-2-KOKO EATING BANANAS
+APPROACH-
+1.)Start binary searching and calculate the mid(consider this mid as your answer)and then calculate hours it take,if this hour is greater then your actual hour then
+set low to mid+1,else set your answer to that hour and set high to mid-1.
+SOLUTION-
+class Solution {
+public:
+    int minEatingSpeed(vector<int>& piles, int hour) {
+      sort(piles.begin(),piles.end());
+      long long l=1,h=*max_element(piles.begin(),piles.end()),mid,ans=0,mini=1;
+        while(l<=h){
+            ans=0;
+            mid=l+(h-l)/2;
+            for(int i=0;i<piles.size();i++){
+                if(piles[i]<=mid)
+                ans++;
+                else{
+                    int m=piles[i]%mid;
+                    if(m!=0)
+                    ans++;
+                    ans+=(piles[i]/mid);
+                }
+            }
+                if(ans>hour)
+                l=mid+1;
+                else{
+                    mini=mid;
+                   h=mid-1;
+                }
+            
+        }
+        return mini;
+    }
+};
+TIME COMPLEXITY-
+O(nlogn)
+SPACE COMPLEXITY-
+O(1)
