@@ -1,0 +1,48 @@
+POTD-#34
+TASK-1-FIND FIRST AND LAST OCCURENCE
+APPROACH-
+1.)For chcking first occurence,we simply apply binary search,if mid element is greater than target than we set high to mid-1,and if it is less than target then we 
+set low to mid+1,otherwise if it is equal to target then check if element at mid-1 is not equal to mid then return it otherwise set high to mid-1.
+2.)Same as step 1 to check for last occurence but if the mid element is equal to target then we check mid+1 element if it is not equal to mid then return mid otherwise
+set low to mid+1.
+SOLUTION-
+class Solution {
+public:
+int firstOcc(vector<int>&nums, int target){
+    int n=nums.size() , low=0, high=n-1;
+    while(low <= high){
+        int mid = (low + high)/2;
+        if(nums[mid] > target)high = mid - 1;
+        else if(nums[mid] < target)low = mid + 1;
+        else
+        {
+            if(mid == 0 || nums[mid-1]!=nums[mid])return mid;
+            else
+            high = mid - 1;
+        }
+    }
+    return -1;
+}
+int lastOcc(vector<int>&nums, int target){
+    int n=nums.size() , low=0, high=n-1;
+    while(low <= high){
+        int mid = (low + high)/2;
+        if(nums[mid] > target)high = mid - 1;
+        else if(nums[mid] < target)low = mid + 1;
+        else
+        {
+            if(mid == n-1 || nums[mid+1]!=nums[mid])return mid;
+            else
+            low = mid + 1;
+        }
+    }
+    return -1;
+}
+vector<int> searchRange(vector<int>& nums, int target) {
+        return {firstOcc(nums , target) , lastOcc(nums , target)};
+    }
+};
+TIME COMPLEXITY-
+O(logn)
+SPACE COMPLEXITY-
+O(1)
