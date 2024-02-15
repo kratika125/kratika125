@@ -1,0 +1,28 @@
+POTD-#44
+TASK-2-ODD EVEN LINKED LIST
+APPROACH-
+1.)Create two nodes,one  points at odd positioned node and another one points to even positioned node,then connect these nodes to its next to next node,and stop when the node next to odd positioned node is NULL or
+node next to next of odd positioned node is NULL.
+SOLUTION-
+Class Solution {
+public:
+    ListNode* oddEvenList(ListNode* head) {
+        if(head==NULL)
+        return NULL;
+        ListNode* prev=head->next;
+        ListNode* temp=head;
+        ListNode* tail=prev;
+       while(temp->next!=NULL && temp->next->next!=NULL){
+           temp->next=temp->next->next;
+           prev->next=prev->next->next;
+           temp=temp->next;
+           prev=prev->next;
+       }
+       temp->next=tail;
+       return head;
+    }
+};
+TIME COMPLEXITY-
+O(N)
+SPACE COMPLEXITY-
+O(1)
