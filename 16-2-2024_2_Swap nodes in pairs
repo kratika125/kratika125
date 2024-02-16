@@ -1,0 +1,32 @@
+POTD-#44
+TASK-2-SWAP NODES IN PAIRS
+APPROACH-
+1.)Swap the value of node with its next node and stop when list ended or points to NULL or node to its next is NULL
+SOLUTION-
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* swapPairs(ListNode* head) {
+        ListNode* temp=head;
+        while(temp!=NULL && temp->next!=NULL){
+            int a=temp->val;
+            temp->val=temp->next->val;
+            temp->next->val=a;
+            temp=temp->next->next;
+        }
+        return head;
+    }
+};
+TIME COMPLEXITY-
+O(N)
+SPACE COMPLEXITY-
+O(1)
