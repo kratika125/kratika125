@@ -1,0 +1,65 @@
+POTD-#47
+TASK-2-ADD TWO NUMBERS
+APPROACH-
+1.)Reverse bothe lists and then add them and store their remainder after dividing by 10 in new list and store carry by diving sum by 10 and then at last if carry is not 0 then attach it in your list and then 
+reverse the list.
+SOLUTION-
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        l1=reverse(l1);
+        l2=reverse(l2);
+        ListNode* v=new ListNode(0);
+        ListNode* ans=v;
+    int a=0,c=0;
+        while(l1!=NULL || l2!=NULL){
+            a=0;
+             if(l1!=NULL){
+             a+=l1->val;
+             l1=l1->next;
+             }
+             if(l2!=NULL){
+             a+=l2->val;
+             l2=l2->next;
+             }
+             a+=c;
+              ListNode *temp=new ListNode(a%10);
+            ans->next=temp;
+            ans=temp;
+            c=a/10;}
+            if(c!=0){
+               ListNode *temp=new ListNode(c);
+            ans->next=temp;
+            ans=temp;  
+            }
+         v=v->next;
+
+        return reverse(v);
+    }
+    ListNode* reverse(ListNode* temp){
+         ListNode* prev=NULL;
+        ListNode* curr=temp;
+        ListNode* forward=NULL;
+        while(curr!=NULL){
+            forward=curr->next;
+            curr->next=prev;
+            prev=curr;
+            curr=forward;
+        }
+        return prev;
+    }
+};
+TIME COMPLEXITY-
+O(N)
+SPACE COMPLEXITY-
+O(1)
