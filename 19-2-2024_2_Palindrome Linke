@@ -1,0 +1,39 @@
+POTD-#48
+TASK-1-PALINDROME LINKED LIST
+APPROACH-
+1.)Reverse a list and then compare values of bothe list,if their values are different then return 0 otherwise return 1.
+SOLUTION-
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        ListNode* curr=head;
+         ListNode* prev=NULL;
+         while(curr!=NULL){
+              ListNode* forward=new ListNode(curr->val);
+              forward->next=prev;
+              prev=forward;
+              curr=curr->next;
+              }
+             while(head!=NULL){
+             if(head->val!=prev->val)
+             return 0;
+             head=head->next;
+             prev=prev->next;
+            }
+    return 1;
+    }
+};
+TIME-COMPLEXITY-
+O(N)
+SPACE COMPLEXITY-
+O(1)
