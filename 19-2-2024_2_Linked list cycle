@@ -1,0 +1,32 @@
+POTD-#48
+TASK-2-LINKED LIST CYCLE
+APPROACH-
+Use slow and fast technique in which we point slow to its next node and fast to its next to next node everytime,if the meet at any point,it means they contain a cycle.
+SOLUTION-
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        ListNode* slow=head;
+         ListNode* fast=head;
+         while(fast && fast->next){
+            slow=slow->next;
+             fast=fast->next->next;
+              if(fast==slow)
+             return 1;
+         }
+         return 0;
+
+    }
+};
+TIME COMPLEXITY-
+O(N)
+SPACE COMPLEXITY-
+O(1)
