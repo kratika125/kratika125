@@ -1,0 +1,43 @@
+POTD-#47
+TASK-1-REMOVE DUPLICATES FROM SORTED LIST 2
+APPROACH-
+1.)Create new list whose second node or next of first node points to given list,then start traversing the list,if adjacent two nodes are same then increase the pointer until we don't get different nodes,and then
+set prev to next of last duplicate node,otherwise set prev to its next.
+SOLUTION-
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        ListNode* temp=head;
+        ListNode* curr=new ListNode(0);
+    curr->next=temp;
+        ListNode* prev=curr;
+        while(temp!=NULL && temp->next!=NULL){
+            if(temp->next!=NULL && temp->val==temp->next->val){
+           while(temp->next!=NULL && temp->val==temp->next->val){
+               temp=temp->next;
+           }
+           prev->next=temp->next;
+            }
+           else{
+               prev=prev->next;
+           }
+           temp=temp->next;
+        }
+        return curr->next;
+
+    }
+};
+TIME COMPLEXITY-
+O(N^2)
+SPACE COMPLEXITY-
+O(1)
