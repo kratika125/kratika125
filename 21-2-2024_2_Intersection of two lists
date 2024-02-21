@@ -1,0 +1,32 @@
+POTD-#50
+TASK-2-INTERSECTION OF TWO LINKED LISTS
+APPROACH-
+Start from list2 and start checking the value in list 1,if it matches then return that node.
+SOLUTION-
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* getIntersectionNode(ListNode* headA, ListNode* headB) {
+        while (headB != NULL) {
+            ListNode* temp = headA;
+            while (temp != NULL) {
+                if (temp == headB)
+                    return temp;
+                temp = temp->next;
+            }
+            headB = headB->next;
+        }
+        return NULL;
+    }
+};
+TIME COMPLEXITY-
+O(N^2)
+SPACE COMPLEXITY-
+O(1)
