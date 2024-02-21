@@ -1,0 +1,46 @@
+POTD-#49
+TASK-2-REVERSE LINKED LIST
+APPROACH-
+1.)Start from left node and store its previous node in prevleft and then reverse from left node upto right node,and then connect prevleft node to prev and next of curr to left node
+SOLUTION-
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseBetween(ListNode* head, int left, int right) {
+        ListNode* temp=new ListNode(0);
+         temp->next=head;
+       ListNode* prevleft=temp;
+       ListNode* l=head;
+       int i=1;
+       while(i<left){
+           prevleft=l;
+           l=l->next;
+           i++;
+       }
+       ListNode* prev=NULL;
+        ListNode* curr=l;
+     ListNode* forward=NULL;
+      for(int j=left;j<=right;j++){
+          forward=curr->next;
+          curr->next=prev;
+          prev=curr;
+          curr=forward;
+            }
+            prevleft->next=prev;
+            l->next=curr;
+            return temp->next;
+    }
+};
+TIME COMPLEXITY-
+O(n)
+SPACE COMPLEXITY-
+O(1)
