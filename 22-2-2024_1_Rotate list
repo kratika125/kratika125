@@ -1,0 +1,46 @@
+POTD-#50
+TASK-1-ROTATE LIST
+APPROACH-
+1.)Find the length of list and then update k as k % length and then connect last node to head and delete it from last
+SOLUTION-
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* rotateRight(ListNode* head, int k) {
+        ListNode* prev;
+        ListNode* tail=head;
+        if(head==NULL)
+        return head;
+        int i=0;
+        while(tail!=NULL){
+        i++;
+        tail=tail->next;
+    }
+    k=k%i;
+        while(k--){
+             tail=head;
+              while(tail->next!=NULL)
+        {    prev=tail;
+          tail=tail->next;
+              }
+              tail->next=head;
+              prev->next=NULL;
+              head=tail;
+              
+        }
+        return head;
+    }
+};
+TIME COMPLEXITY-
+O(N)
+SPACE COMPLEXITY-
+O(1)
