@@ -1,0 +1,72 @@
+POTD-#49
+TASK-1-SORTED INSERT FOR CIRCULAR LIST
+APPROACH-
+1.)If the data is less than head then insert at head,otherwise if data is greater than tail then insert at tail otherwise it means the node is inserted in between,so traverse the list and then check if previous
+node is less than data and next node is greater than data then insert node between them. 
+SOLUTION-
+/* structure for a node */
+/*
+struct Node
+{
+  int data;
+  struct Node *next;
+  
+  Node(int x){
+      data = x;
+      next = NULL;
+  }
+  
+};
+ */
+ 
+// This function should return head of
+// the modified list
+class Solution
+{
+    public:
+    Node *sortedInsert(Node* head, int data)
+    {  if(head==NULL){
+         Node* newnode=new Node(data);
+         newnode->next=newnode;
+         return newnode;
+         }
+         if(data<=head->data){
+          Node* newnode=new Node(data);
+          Node* curr=head;
+          while(curr->next!=head){
+              curr=curr->next;
+          }
+         newnode->next=curr->next;
+         curr->next=newnode;
+         return newnode;
+         }
+       Node* tail=head;
+         while(tail->next!=head){
+             tail=tail->next;
+         }
+         if(tail->data<data){
+                Node* newnode=new Node(data);
+            newnode->next=tail->next;
+            tail->next=newnode;
+         return head;
+         }
+       Node* temp=head;
+       int flag=1;
+       while(flag==1){
+           if(temp->data<=data && temp->next->data>=data)
+           {
+              Node* newnode=new Node(data);
+              newnode->next=temp->next;
+              temp->next=newnode;
+             flag=0;
+           }
+           else
+           temp=temp->next;
+       }
+       return head;
+    }
+};
+TIME COMPLEXITY-
+O(N)
+SPACE COMPLEXITY-
+O(1)
