@@ -1,0 +1,53 @@
+POTD-#51
+TASK-2-REORDER LIST
+APPROACH-
+Start traversing the list and connect the tail to temp and move pointer forward to next of next to temp
+SOLUTION-
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    void reorderList(ListNode* head) {
+        ListNode* tail=head;
+        ListNode* temp=head;
+        ListNode* prev=NULL;
+        ListNode* p=NULL;
+        int k,i=0;
+        while(temp!=NULL){
+            i++;
+            temp=temp->next;
+        }
+        if(i%2==0)
+        k=i/2-1;
+        else
+        k=i/2;
+        temp=head;
+      //  cout<<k;
+        while(k--){
+            tail=head;
+            prev=temp->next;
+            while(tail->next!=NULL){
+                p=tail;
+                tail=tail->next;
+            }
+            //cout<<p->val;
+            temp->next=tail;
+            tail->next=prev;
+             p->next=NULL;
+             temp=temp->next->next;
+        }
+        
+    }
+};
+TIME COMPLEXITY-
+O(N^2)
+SPACE COMPLEXITY-
+O(1)
