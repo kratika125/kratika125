@@ -1,0 +1,35 @@
+POTD-#51
+TASK-1-PARTITION LIST
+APPROACH-
+1.)Create two list,one contain all nodes less than target x and another one contain all nodes greater than x,then connect the first list to another one.
+SOLUTION-
+class Solution {
+public:
+    ListNode* partition(ListNode* head, int x) {
+        ListNode* temp=head;
+          ListNode* l2=new ListNode(-1);
+          ListNode* l1=new ListNode(-1);
+          ListNode* curr1=l1;
+            ListNode* curr=l2;
+        while(temp!=NULL){
+          if(temp->val<x){
+            curr1->next=temp;
+            curr1=curr1->next;
+          }
+          else{
+          curr->next=temp;
+          curr=curr->next;
+          }
+         temp=temp->next;
+          }
+         curr->next=NULL;
+         curr1->next=NULL;
+          curr1->next=l2->next;
+           return l1->next;
+        
+    }
+};
+TIME COMPLEXITY-
+O(N)
+SPACE COMPLEXITY-
+O(N)
