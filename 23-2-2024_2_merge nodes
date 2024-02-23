@@ -1,0 +1,53 @@
+POTD-#52
+TASK-2-MERGE NODES IN BETWEEN ZERO
+APPROACH-
+1.)Change the head val to sum(calculated sum between 0's) and then count number of zeroes in list and then traverse the list and when number of zeroes become less than 2 then point the current node to NULL.
+SOLUTION-
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* mergeNodes(ListNode* head) {
+        ListNode* temp=head;
+        ListNode* ans=head;
+        int sum=0,i=0;
+        while(temp!=NULL){
+            if(temp->val==0)
+            i++;
+            temp=temp->next;
+        }
+        temp=head;
+        temp=temp->next;
+         while(temp!=NULL){
+             if(temp->val!=0){
+                 int a=temp->val;
+                 sum+=a;
+             }
+             if(temp->val==0){
+               ans->val=sum;
+              ans=ans->next;
+                 sum=0;
+             }
+        temp=temp->next;
+         }
+         ans=head;
+         while(i>2){
+             ans=ans->next;
+             i--;
+         }
+         ans->next=NULL;
+         return head;
+    }
+};
+TIME COMPLEXITY-
+O(N)
+SPACE COMPLEXITY-
+O(1)
