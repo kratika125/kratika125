@@ -1,0 +1,46 @@
+POTD-#53
+TASK-1-REVERSE NODES IN K GROUP
+APPROACH-
+1.)Create a new list and calculate length of original list and then divide it by k and then make groups and reverse the list in that group and set head to next of that reverse list and connect groups in new list.
+SOLUTION-
+class Solution {
+public:
+    ListNode* reverseKGroup(ListNode* head, int k) {
+       int l=0,len=0,c,t=0;
+       ListNode* v=new ListNode(0);
+       ListNode* ans=v;
+       ListNode* temp1=head;
+       while(temp1!=NULL){
+           len++;
+           temp1=temp1->next;
+       }
+   c=len/k;
+   temp1=head;
+       while(c>0){
+           l=0;
+         ListNode* temp=head;
+         ListNode* prev=NULL;
+        ListNode* forward=NULL;
+       while(l<k && temp!=NULL){
+        forward=temp->next;
+        temp->next=prev;
+        prev=temp;
+        temp=forward;
+        l++;
+       }
+       ans->next=prev;
+       while(ans->next!=NULL){
+           ans=ans->next;
+       }
+       head=forward;
+       c--;
+       }
+       ans->next=head;
+      return v->next;
+    }
+        
+};
+TIME COMPLEXITY-
+O(N)
+SPACE COMPLEXITY-
+O(1)
