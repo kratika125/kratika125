@@ -1,0 +1,45 @@
+POTD-#53
+TASK-2-DOUBLE A NUMBER REPRESENTED AS LINKED LIST
+APPROACH-
+Reverse the list and then multiply the nodes by 2 and add carry and then change the value to remainder of node divide by 10 and update carry as divide the node by 10.
+SOLUTION-
+class Solution {
+public:
+    ListNode* doubleIt(ListNode* head) {
+        ListNode* temp=head;
+        ListNode* l=NULL;
+     head=reverse(head);
+     temp=head;
+     int a,c=0;
+     while(temp!=NULL){
+          a=temp->val*2+c;
+          c=0;
+         temp->val=a%10;
+         c=a/10;
+         l=temp;
+         temp=temp->next;
+     }
+     if(c!=0){
+         ListNode* newnode=new ListNode(c);
+          l->next=newnode;
+     }
+     head=reverse(head);
+      return head;
+    }
+    ListNode* reverse(ListNode* temp1){
+     ListNode* temp=temp1;
+        ListNode* prev=NULL;
+        ListNode* forward=NULL;
+        while(temp!=NULL){
+        forward=temp->next;
+        temp->next=prev;
+        prev=temp;
+        temp=forward;
+        }
+        return prev;
+    }
+};
+TIME COMPLEXITY-
+O(N)
+SPACE COMPLEXITY-
+O(1)
