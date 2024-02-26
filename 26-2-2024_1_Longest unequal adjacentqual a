@@ -1,0 +1,22 @@
+POTD-#55
+TASK-1-LONGEST UNEQUAL ADJACENT GROUPS SUBSEQUENCE
+APPROACH-
+1.)Simply compare group array adjacent elememnts and then put the word elements of that index(when the adjacent are different)
+class Solution {
+public:
+    vector<string> getLongestSubsequence(vector<string>& words, vector<int>& g) {
+        vector<string>v;
+       v.push_back(words[0]);
+        for(int i=0;i<g.size()-1;i++){
+            if(g[i]!=g[i+1]){
+            v.push_back(words[i+1]);
+            }
+        }
+        return v;
+
+    }
+};
+TIME COMPLEXITY-
+O(N)
+SPACE COMPLEXITY-
+O(1)
