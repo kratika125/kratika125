@@ -1,0 +1,49 @@
+POTD-#56
+TASK-1-DETERMINE IF TWO EVENTS CONFLICT
+APPROACH-
+1.)Convert the start and end time of bothe events in minutes and then check if event2 start minutes lies between event1 start minutes and end minutes then return true.If event1 start minutes lies between event2
+start and end minutes then return true,otherwise return false.
+SOLUTION-
+class Solution {
+    public:
+    bool haveConflict(vector<string>& e1, vector<string>& e2) {
+     int a,b,i=0;
+     vector<int>v;
+     while(i<2){
+        string s;
+        s.push_back(e1[i][0]);
+        s.push_back(e1[i][1]);
+        a=stoi(s);
+        s.clear();
+         s.push_back(e1[i][3]);
+        s.push_back(e1[i][4]);
+        a=a*60;
+        a+=stoi(s);
+        v.push_back(a);
+        i++;
+    }
+    i=0;
+    while(i<2){
+        string s;
+        s.push_back(e2[i][0]);
+        s.push_back(e2[i][1]);
+        a=stoi(s);
+        s.clear();
+         s.push_back(e2[i][3]);
+        s.push_back(e2[i][4]);
+        a=a*60;
+        a+=stoi(s);
+        v.push_back(a);
+       i++;
+    }
+  if(v[0]<=v[2]&& v[2]<=v[1] )
+  return 1;
+  if(v[0]>=v[2] && v[0]<=v[3])
+  return 1;
+  return 0;
+}
+};
+TIME COMPLEXITY-
+O(1)
+SPACE COMPLEXITY-
+O(1)
