@@ -1,0 +1,37 @@
+POTD-#79
+TASK-1-CHECK IF ARRAY IS SORTED
+SOLUTION-
+APPROACH 1-RECURSION
+// User function template for C++
+
+class Solution {
+  public:
+    bool arraySortedOrNot(int arr[], int n) {
+        // code here
+        if(n==0 ||n==1)
+        return 1;
+        if(arr[n-1]<arr[n-2])
+        return 0;
+    
+        return arraySortedOrNot(arr,n-1);
+    }
+    
+};
+Note-Doesn't pass the last test case,runtime error.
+APPROACH 2-SIMPLE CHECK
+// User function template for C++
+
+class Solution {
+  public:
+    bool arraySortedOrNot(int arr[], int n) {
+        for(int i=0;i<n-1;i++){
+            if(arr[i]>arr[i+1])
+            return 0;
+        }
+        return 1;  }
+    
+};
+Time Complexity-
+O(n)
+Space Complexity-
+O(1)
