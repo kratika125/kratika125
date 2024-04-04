@@ -1,0 +1,23 @@
+POTD-#79
+TASK-4-PALINDROME OR NOT
+SOLUTION-
+//User function Template for C++
+class Solution
+{ public:
+		string is_palindrome(int n)
+		{ int temp=0;
+		   int l=palin(n,temp); 
+		   if(l==n)
+		   return "Yes";
+		   else
+		   return "No"; }
+		int palin(int n,int temp){
+		    if(n==0)
+		    return temp;
+		    temp=temp*10+n%10;
+		    return palin(n/10,temp); }
+};
+TIME COMPLEXITY-
+O(logn)
+SPACE COMPLEXITY-
+O(logn)
