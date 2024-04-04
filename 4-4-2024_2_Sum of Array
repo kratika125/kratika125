@@ -1,0 +1,23 @@
+POTD-#79
+TASK-2-Sum of Array
+APPROACH-(RECUSRION)
+1.)Simply start from last element and add  element in first element and then recursively call function for next element to add.
+SOLUTION-
+//User function template for C++
+class Solution{
+public:
+	// function to return sum of elements
+	// in an array of size n
+	int sum(int arr[], int n) {
+	    // code here
+	     // ans=0;
+	    if(n==1)
+	    return arr[0];
+	   arr[0]+=arr[n-1];
+	    return sum(arr,n-1);
+	}
+};
+TIME COMPLEXITY-
+O(N)
+SPACE COMPLEXITY-
+O(N)
