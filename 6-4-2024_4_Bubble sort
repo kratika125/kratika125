@@ -1,0 +1,35 @@
+POTD-#80
+TASK-4-BUBBLE SORT
+APPROACH-
+1.)Simply check two elements and then move the maximum element to right,so,the largest element set on last index and then repeat this step until the element gets swapped with each other.
+SOLUTION-
+class Solution
+{
+    public:
+    //Function to sort the array using bubble sort algorithm.
+    void bubbleSort(int arr[], int n)
+    {
+        // Your code here 
+        for(int i=0;i<n-1;i++){
+            bool k=ans(arr,i,n);
+            if(k==0)
+            break;
+        }
+        
+        
+    }
+    bool ans(int arr[],int i,int n){
+        bool k=0;
+        for(int j=0;j<n-i-1;j++){
+            if(arr[j]>arr[j+1]){
+            swap(arr[j],arr[j+1]);
+            k=1;
+        }
+            }
+            return k;
+    }
+};
+TIME COMPLEXITY-
+O(N^2)
+SPACE COMPLEXITY-
+O(1)
