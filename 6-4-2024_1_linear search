@@ -1,0 +1,24 @@
+POTD-#80
+TASK-1-LINEAR SEARCH
+APPROACH-
+1.)Simply start from first element and then find smallest element and swap it with first element, same repeat this step for second element.
+SOLUTION-
+class Solution {
+  public:
+    int search(int n, int k, vector<int> &arr) {
+        // code here
+        int i=0;
+        return print(arr,i,k);
+    }
+    int print(vector<int>arr,int i,int k){
+        if(i>=arr.size())
+        return -1;
+        if(arr[i]==k)
+        return i+1;
+        return print(arr,i+1,k);
+    }
+};
+TIME COMPLEXITY-
+O(N)
+SPACE COMPLEXITY-
+O(N)
