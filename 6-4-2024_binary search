@@ -1,0 +1,30 @@
+POTD-#80
+TASK-2-BINARY SEARCH
+SOLUTION-
+class Solution {
+  public:
+    int binarysearch(int arr[], int n, int k) {
+        // code here
+        
+        int l=0,h=n-1,m=0;
+        return print(arr,l,h,m,k);
+        
+    }
+    int print(int arr[],int l,int h,int m,int k){
+        if(l>h)
+        return -1;
+        m=(l+h)/2;
+        if(arr[m]==k)
+        return m;
+        else if(arr[m]<k)
+        return print(arr,m+1,h,m,k);
+        else
+        return print(arr,l,m-1,m,k);
+        
+        
+    }
+};
+TIME COMPLEXITY-
+O(logN)
+SPACE COMPLEXITY-
+O(logN)
