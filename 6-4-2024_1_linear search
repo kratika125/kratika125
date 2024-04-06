@@ -1,7 +1,7 @@
 POTD-#80
 TASK-1-LINEAR SEARCH
 APPROACH-
-1.)Simply start from first element and then find smallest element and swap it with first element, same repeat this step for second element.
+1.)Simply start from first element and then access all elements, if we find that k value then return its position,otherwise return -1.
 SOLUTION-
 class Solution {
   public:
