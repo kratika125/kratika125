@@ -1,0 +1,39 @@
+POTD-#81
+TASK-1-INSERTION SORT
+APPROACH-
+1.)Start from second element and compare it with first element,if it is smaller than first then swap them,and then move to third element and check until swapping are done or element at its previous index 
+is greater than current element.
+SOLUTION-
+ class Solution
+{
+    public:
+    void insert(int arr[], int i)
+    {
+        //code here
+      for(int j=i-1;j>=0;j--){
+          if(arr[j]>arr[i])
+          {
+              int a=arr[j];
+              arr[j]=arr[i];
+              arr[i]=a;
+             i--;
+              //break;
+          }
+          else
+          break;
+      }
+    }
+     public:
+    //Function to sort the array using insertion sort algorithm.
+    void insertionSort(int arr[], int n)
+    {
+        //code here
+        for(int i=1;i<n;i++){
+            insert(arr,i);
+        }
+    }
+};
+TIME COMPLEXITY-
+O(n^2)
+SPACE COMPLEXITY-
+O(1)
