@@ -1,0 +1,25 @@
+POTD-#81
+TASK-2-SUBSETS
+APPROAH-
+1.)First we push the empty array in our ans array and then take one by one array from ans and push the element of nums array and then again push this new array in ans array.
+SOLUTION-
+class Solution {
+public:
+    vector<vector<int>> subsets(vector<int>& nums) {
+        vector<vector<int>>ans;
+        vector<int>v;
+        ans.push_back(v);
+       for(int i=0;i<nums.size();i++){
+        for(int j=ans.size()-1;j>=0;j--){
+            v=ans[j];
+            v.push_back(nums[i]);
+            ans.push_back(v);
+        }
+       }
+        return ans;
+    }
+};
+TIME COMPLEXITY-
+O(2^N)
+SPACE COMPLEXITY-
+O(2^N)
