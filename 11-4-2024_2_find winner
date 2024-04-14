@@ -1,0 +1,28 @@
+POTD-#82
+TASK-2-FIND THE WINNER OF CIRCULAR GAME
+APPROACH-
+1.)Create a array which contain the elements from 1 to n and then start from first element and move to element at kth from that element by taking modulo with size of array and then remove that element.
+SOLUTION-
+class Solution {
+public:
+void solve(vector<int>&v,int j,int k){
+        if(v.size()==1)
+        return;
+           int a=(j+k-1)%v.size();
+           v.erase(v.begin()+a);
+          solve(v,a,k);
+}
+    int findTheWinner(int n, int k) {
+        vector<int>v;
+        for(int i=1;i<=n;i++){
+            v.push_back(i);
+        }
+        int j=0;
+         solve(v,j,k);
+         return v[0]; 
+    }
+};
+TIME COMPLEXITY-
+O(n^2)
+SPACE COMPLEXITY-
+O(n)
